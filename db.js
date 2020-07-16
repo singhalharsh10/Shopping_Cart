@@ -11,7 +11,7 @@ const db = new Sequelize('Shoppingcart', 'shopper', 'shoppass', {
 
 const User = db.define('users', {
     id: {
-        type: Sequilize.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
@@ -26,7 +26,7 @@ const User = db.define('users', {
 
 const Product = db.define('products', {
     id: {
-        type: Sequilize.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
@@ -46,6 +46,11 @@ const Product = db.define('products', {
     }
 
 })
+
+
+db.sync()
+    .then(() => console.log("Database has been cretaed/sync"))
+    .catch(() => console.log("errsor creating database"))
 
 exports = module.exports = {
     User,

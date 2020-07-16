@@ -4,8 +4,10 @@ const path = require('path')
 
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/', express.static(path.join(__dirname, 'public'))) //used to include public folder to prevent aap.get command
-
+app.use('/api', require('./routes/api').route) //for api in routes  irt will tae us tp 
 
 
 
