@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+
 const db = new Sequelize('Shoppingcart', 'shopper', 'shoppass', {
     host: 'localhost',
     dialect: 'mysql',
@@ -16,7 +17,7 @@ const User = db.define('users', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING,
         allowNULL: false
     }
 
@@ -31,7 +32,7 @@ const Product = db.define('products', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING,
         allowNULL: false
     },
     manufacturer: {
@@ -42,7 +43,7 @@ const Product = db.define('products', {
     price: {
         type: Sequelize.FLOAT,
         allowNULL: false,
-        defaultValue: 0.00
+        defaultValue: 0.0
     }
 
 })
